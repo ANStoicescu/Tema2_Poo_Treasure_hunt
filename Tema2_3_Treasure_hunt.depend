@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1588429645 source:c:\users\adi\desktop\poo\tema2_3_treasure_hunt\map.cpp
+	"map.h"
+
+1588430622 c:\users\adi\desktop\poo\tema2_3_treasure_hunt\map.h
+	<iostream>
+
+1588429645 source:c:\users\adi\desktop\poo\tema2_3_treasure_hunt\players.cpp
+	"players.h"
+
+1588434722 c:\users\adi\desktop\poo\tema2_3_treasure_hunt\players.h
+	"map.h"
+
+1588430579 source:c:\users\adi\desktop\poo\tema2_3_treasure_hunt\game.cpp
+	"game.h"
+
+1588430622 c:\users\adi\desktop\poo\tema2_3_treasure_hunt\game.h
+	"map.h"
+	"players.h"
+
+1588429190 source:c:\users\adi\desktop\poo\tema2_3_treasure_hunt\main.cpp
+	<iostream>
+	"game.h"
+
