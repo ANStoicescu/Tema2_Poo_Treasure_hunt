@@ -13,7 +13,9 @@ int main()
         if(nr>0)
             Game.run(nr);
         if(nr==-1)
+        {
             Game=game();
+        }
         cout<<"Pentru a continua introduceti un numar de runde.\nPentru a incepe o simulare noua tastati -1.\nPentru a iesi din program tastati -2.\n";
         cin>>nr;
     }

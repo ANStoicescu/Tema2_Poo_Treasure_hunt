@@ -5,10 +5,14 @@
 class players
 {
     map *Map_;
+    location player_1_loc,player_2_loc,player_3_loc,player_4_loc;
 public:
     players(map *map_);
-    bool move(int id);
-    void remove(int id);
+    int move(int id);
+    int player_1_move();
+    int player_2_move();
+    int player_3_move();
+    int player_4_move();
     virtual ~players();
 };
 

@@ -7,11 +7,11 @@ class game
 {
     map Map_;
     players Players_=players(&Map_);
+    int nr_players;
     int *order;
 public:
     game();
     void run(int nr);
-    void new_round();
     virtual ~game();
 };
 
