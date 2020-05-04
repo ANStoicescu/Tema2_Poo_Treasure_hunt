@@ -22,7 +22,6 @@ int rand_vector(int order[])//seteaza o ordine aleatoare a playerilor in vectoru
 
 game::game()
 {
-    order = new int[5];
     rand_vector(order);
     cout<<"Ordinea playerilor este: ";
     for(int i=1; i<=4; i++)cout<<order[i]<<' ';
@@ -32,31 +31,31 @@ game::game()
 
 void game::run(int nr)
 {
-    while(nr-- && nr_players>1)
+    while(nr-- && nr_players>1)// Jocul ruleaza pentru cele nr runde introduse de la tastatura
     {
         for(int i=1; i<=4; i++)
         {
             if(order[i]==0)continue;
-            int gate=Players_.move(order[i]);
-            if(gate==1)
+            int gate=Players_.move(order[i]);//apelam functia care ii spune playerului cu id-ul order[i] sa se mute
+            if(gate==1)//daca atunci cand playerul s-a mutat functia a returnat 1 atunci inseamna ca playerul a gasit o comoara
             {
                 cout<<"Playerul cu id-ul "<<order[i]<<" a gasit o comoara si a fost eliminat de pe mapa\n";
                 order[i]=0;
                 nr_players--;
             }
-            if(gate==3)
+            if(gate==3)//daca atunci cand playerul s-a mutat functia a returnat 3 atunci insemna ca playerul este blocat asa ca va fi eliminat
             {
                 cout<<"Playerul cu id-ul "<<order[i]<<" nu mai are nici o mutare valida asa ca a fost eliminat\n";
                 order[i]=0;
                 nr_players--;
             }
         }
-        cout<<"Mapa arata acum asa:\n";
+        cout<<"Harta arata acum asa:\n";
         cout<<Map_;
     }
 }
 
 game::~game()
 {
-    //delete [] order;
+    Map_.~map();
 }

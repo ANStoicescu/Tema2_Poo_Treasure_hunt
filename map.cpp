@@ -4,7 +4,8 @@ using namespace std;
 
 map::map()
 {
-    size_=17;
+    size_=15;// De aici putem seta dimensiunea mapei
+    size_+=2;
     mat_ = new int*[size_];
     for (int i = 0; i < size_; ++i)
         mat_ [i] = new int[size_];
@@ -13,18 +14,26 @@ map::map()
             mat_[i][j]=0;
     for(int i=0; i<size_; i++)
         mat_[i][0]=mat_[0][i]=mat_[i][size_-1]=mat_[size_-1][i]=8;
-    mat_[1][1]=mat_[1][15]=mat_[15][1]=mat_[15][15]=2;
+    mat_[1][1]=mat_[1][size_-2]=mat_[size_-2][1]=mat_[size_-2][size_-2]=2;
 
     for(int i=1; i<=3; i++)
     {
-        treasure[i].x=rand()%15;
-        treasure[i].y=rand()%15;
-        mat_[treasure[i].x][treasure[i].y]=3;
+        bool gate=0;
+        while(gate==0)
+        {
+            treasure[i].x=rand()%(size_-2)+1;
+            treasure[i].y=rand()%(size_-2)+1;
+            if(mat_[treasure[i].x][treasure[i].y]==0)
+            {
+                mat_[treasure[i].x][treasure[i].y]=3;
+                gate=1;
+            }
+        }
     }
 
 }
 
-int map::move_player(location loc,int direction)
+int map::move_player(const location loc,const int direction)
 {
     if(mat_[loc.x][loc.y-1]!=0&&mat_[loc.x+1][loc.y]!=0&&mat_[loc.x-1][loc.y]!=0&&mat_[loc.x][loc.y+1]!=0)
         return 3;
@@ -101,7 +110,7 @@ std::ostream& operator<<(std::ostream& out, map& Mat)
 
 map::~map()
 {
-    for (int i = 0; i < 16; ++i)
+    for (int i = 0; i < size_; ++i)
         delete [] mat_[i];
     delete [] mat_;
 }

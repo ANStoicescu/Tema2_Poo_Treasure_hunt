@@ -8,11 +8,11 @@ players::players(map *map_)
     player_1_loc.x=1;
     player_1_loc.y=1;
     player_2_loc.x=1;
-    player_2_loc.y=15;
-    player_3_loc.x=15;
+    player_2_loc.y=Map_->size_-2;
+    player_3_loc.x=Map_->size_-2;
     player_3_loc.y=1;
-    player_4_loc.x=15;
-    player_4_loc.y=15;
+    player_4_loc.x=Map_->size_-2;
+    player_4_loc.y=Map_->size_-2;//initializez locatiile initiale ale playerilor
 }
 
 int players::player_1_move()
@@ -119,7 +119,7 @@ int players::player_4_move()
     else return 1;
 }
 
-int players::move(int id)
+int players::move(const int id)
 {
     if(id==1)
     {

@@ -8,7 +8,7 @@ class game
     map Map_;
     players Players_=players(&Map_);
     int nr_players;
-    int *order;
+    int order[5];
 public:
     game();
     void run(int nr);

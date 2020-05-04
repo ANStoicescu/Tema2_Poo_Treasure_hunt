@@ -10,13 +10,13 @@ struct location
 
 class map
 {
-    int size_;
     int **mat_;
     location treasure[4];
 public:
+    int size_;
     map();
     virtual ~map();
-    int move_player(location loc,int direction);
+    int move_player(const location loc,const int direction);
     friend std::ostream& operator<<(std::ostream&, map&);
 };
 
